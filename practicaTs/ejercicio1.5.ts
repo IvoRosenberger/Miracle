@@ -1,0 +1,9 @@
+/*Ejercicio 1.5
+Dado el siguiente codigo:
+1 Añadir anotaciones de tipo (lo más explícitas posible)
+2 Solucionar errores (si corresponde)*/
+var secuencia = Array(Array(10));
+var animales = ['pinguino', 'oso hormiguero', 'zorro', 'jirafa'];
+var cadenasYNumeros = [1, 'uno', 2, 'dos', 3, 'tres'];
+var todosMisArreglos = [secuencia, animales, cadenasYNumeros];
+console.log('Ejercicio 1.5', todosMisArreglos);

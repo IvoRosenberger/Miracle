@@ -1,0 +1,15 @@
+@mixin marginAndPadding {
+    margin: 4px 4px;
+    padding: 2px;
+  }
+  
+  
+  @mixin borderStyle {
+    border-radius: 1px;
+    border: 3px #ffff;
+  }
+  
+  body {
+    @include marginAndPadding();
+    @include borderStyle();
+  }
