@@ -1,0 +1,157 @@
+{
+    "info": {
+        "_postman_id": "2b1ecf08-b3a7-48a5-9c92-aacf23bf2d69",
+        "name": "Ejercitación",
+        "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+        "_exporter_id": "23163031"
+    },
+    "item": [
+        {
+            "name": "Verificar Api de Health",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": "{{url}}/zen"
+            },
+            "response": []
+        },
+        {
+            "name": "Verificar informacion de usuario",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": "{{url}}/users/{{username}}"
+            },
+            "response": []
+        },
+        {
+            "name": "Crear Repositorio",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"name\": \"MiracleLab API Repo\",\r\n    \"private\": true,\r\n    \"auto_init\": true,\r\n    \"gitignore_template\": \"nanoc\" \r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": "{{url}}/user/repos"
+            },
+            "response": []
+        },
+        {
+            "name": "Agregar un issue al repositorio",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"title\": \"New logo\",\r\n    \"body\": \"We should have one.\",\r\n    \"labels\": []\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{url}}/repos/:user/:repoName/issues",
+                    "host": [
+                        "{{url}}"
+                    ],
+                    "path": [
+                        "repos",
+                        ":user",
+                        ":repoName",
+                        "issues"
+                    ],
+                    "variable": [
+                        {
+                            "key": "user",
+                            "value": "{{username}}"
+                        },
+                        {
+                            "key": "repoName",
+                            "value": "MiracleLab-API-Repo"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Borrar Repositorio",
+            "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                    "raw": "{{url}}/repos/:owner/:repo",
+                    "host": [
+                        "{{url}}"
+                    ],
+                    "path": [
+                        "repos",
+                        ":owner",
+                        ":repo"
+                    ],
+                    "variable": [
+                        {
+                            "key": "owner",
+                            "value": "{{username}}"
+                        },
+                        {
+                            "key": "repo",
+                            "value": "MiracleLab-API-Repo"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        }
+    ],
+    "auth": {
+        "type": "bearer",
+        "bearer": {
+            "token": "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"
+        }
+    },
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        }
+    ],
+    "variable": [
+        {
+            "key": "url",
+            "value": "https://api.github.com",
+            "type": "string"
+        },
+        {
+            "key": "username",
+            "value": "IvoRosenberger",
+            "type": "string"
+        },
+        {
+            "key": "repoName",
+            "value": "githubApiTest",
+            "type": "string"
+        }
+    ]
+}
